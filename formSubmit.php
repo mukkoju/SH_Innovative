@@ -10,23 +10,23 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && (strtolower($_SERVER['HTTP_X_REQ
             if ($insert) {
                 echo 'Thank you for your interest. We will get back to you ASAP.';
             } else {
-                echo 'Somthing went wrong please try again';
+                echo 'Something went wrong please try again';
             }
         } else {
-            echo 'Somthing went wrong please try again';
+            echo 'Something went wrong please try again';
         }
     } else if (isset($_POST['semail'])) {
-        if (trim($_POST['email']) != '') {
+        if (trim($_POST['semail']) != '') {
             $time = time();
             $id = md5($time . rand(21, 221) . '#$sr');
             $insert = $mysql->query("INSERT INTO _table_subscribe (_subscribe_id, _subscribe_email, _subscribe_Tme_Stmp) VALUES(" . $mysql->quote($id) . ", " . $mysql->quote($_POST['semail']) . ", " . time() . ")");
             if ($insert) {
                 echo "You've been subscribed successfully for updates.";
             } else {
-                echo 'Somthing went wrong please try again';
+                echo 'Something went wrong please try again';
             }
         } else {
-            echo 'Somthing went wrong please try again';
+            echo 'Something went wrong please try again';
         }
     } else {
         header("location: /error.php");
